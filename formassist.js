@@ -81,6 +81,7 @@
         var me = this;
         return $.ajax({
             type: "POST",
+            dataType : "json",
             url: this.url,
             data: post,
             async: true,

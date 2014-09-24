@@ -71,7 +71,7 @@
         if (this.asyncDoneCount < total) return;
         this.asyncDoneCount = 0;
         if (checkAll) this.checkAll();
-        cb(this);
+        if (typeof cb == 'function') cb(this);
     }
 
     FormAssist.prototype.validate = function(key, cb) {
@@ -91,7 +91,7 @@
                 if (msgEl.length > 0) {
                     msgEl.attr('class', msgEl.attr('data-assist-ori'));
                     msgEl.html(data.msg);
-                    msgEl.addClass(data.type);
+                    msgEl.parent().addClass(data.type);
                 }
                 if (typeof me.rules[key].options.cb == 'function') {
                     me.rules[key].options.cb(me, data);

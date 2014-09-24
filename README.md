@@ -37,7 +37,11 @@ And the full form example ...
 
 Then just create a new FormAssist instance with:
 ```javascript
-$('form').FormAssist().rule('rule1', 'input[name="email"]');
+$('form').FormAssist(function(form, e) {
+    e.preventDefault(); // example purposes only
+    form.validateAll();
+    return false; // example purposes only
+}).rule('rule1', 'input[name="email"]');
 ```
 
 ## What's the expected server result?

@@ -92,6 +92,7 @@
                 if (msgEl.length > 0) {
                     msgEl.attr('class', msgEl.attr('data-assist-ori'));
                     msgEl.html(data.msg);
+                    msgEl.parent().attr('class', msgEl.parent().attr('data-assist-ori'));
                     msgEl.parent().addClass(data.type);
                 }
                 if (typeof me.rules[key].options.cb == 'function') {
@@ -130,6 +131,9 @@
         
         // save original message class
         $('.assist-msg-'+key).attr('data-assist-ori', $('.assist-msg-'+key).attr('class'));
+        $('.assist-msg-'+key).each(function(i, item) {
+            $(item).parent().attr('data-assist-ori', $(item).parent().attr('class'));
+        });
         
         return this;
     }

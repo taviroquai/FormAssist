@@ -85,6 +85,7 @@
             url: this.url,
             data: post,
             async: true,
+            cache: false,
             success: function(data) {
                 me.rules[key].options.result = data.result;
                 var msgEl = $('.assist-msg-'+key);
